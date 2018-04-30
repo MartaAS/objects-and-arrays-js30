@@ -15,47 +15,28 @@ let name2 = name;
 name = 'Wesley';
 //console.log(name, name2);
 
-// Let’s say we have an array
-const players = ['Wes', 'Sarah', 'Ryan', 'Poppy'];
 
-//and we want to make a copy of it
+//en este caso no estamos haciendo una copia del array, si no modificamos el array
+const players = ['Wes', 'Sarah', 'Ryan', 'Poppy'];
 const team = players;
 //console.log(players, team);
 
-// You might think we can just do something like this:
 team[2] = 'Lux';
-
-// however what happens when we update that array?
-
-// now here is the problem!
-
-// oh no – we have edited the original array too!
-
-// Why? It’s because that is an array reference, not an array copy.
-// They both point to the same array!
-
-// So, how do we fix this? We take a copy intead!
-
 const team2 = players.slice();
 
-// One day
 
-// or create a new array and concat the old on in
+// en este caso si que estariamos haciendo una copia del array
 const team3 = [].concat(players);
 
-// or use the new ES6 Spread
+// con ES6
 const team4 = [...players];
 team[3] = 'heeee hawww';
 //console.log(team4);
 
 const team5 = Array.from(players);
 
-// now when we update it, the original one isn’t changed
 
-// The same thing goes for objects, let’s say we have a person object
-
-// with Objects
-
+//con los objetos ocurre lo mismo
 const person = {
 	name: 'Wes Bos',
 	age: 80
@@ -65,15 +46,10 @@ const person = {
 const captain = person;
 captain.number = 99;
 
-// how do we take a copy instead?
 const cap2 = Object.assign({}, person, { number: 99, age: 12});
 //console.log(cap2);
 
-// We will hopefully soon see the object ...spread
-//const cap3 = {...person};
-
-// Things to note – this is only 1 level deep – both for Arrays and Objects 
-// lodash has a cloneDeep method, but you should think twice before using it.
+//Es solo un nivel de profundidad, tanto para matrices como para objetos
 
 const wes = {
   name: 'Wes',
